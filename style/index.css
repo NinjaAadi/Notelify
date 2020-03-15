@@ -1,0 +1,353 @@
+*{
+    margin:0px;
+    padding: 0px;
+
+}
+#navbar{
+    width:100%;
+    height:80px;
+    background:white;
+    position: absolute;
+    display: inline-block;
+    z-index:20;
+}   
+#logo{
+    left:-5px;
+    position: absolute;
+    width:150px;
+    height: 75px;
+    display: inline-block;
+
+}
+#element-block{
+position: absolute;
+right: 5%;
+}
+#element-list{
+    list-style: none;
+    padding:20px;
+    background:white;
+    
+}
+#element-list-element{
+    display: inline-block;
+    margin-left:25px;
+    border-bottom :.5px solid#1E90FF;
+    padding:8px;
+    font-family: 'Baloo 2', cursive;
+    cursor: pointer;
+    background: white;
+    z-index: 20;
+}
+#element-list-element:hover{
+    color:white;
+    background:#1E90FF;
+    box-shadow:1px 1px 1px #1E90FF;
+
+}
+#button{
+height:50px;
+width:40px;
+position:absolute;
+right:5%;
+top:29%;
+cursor: pointer;
+display: none;
+
+
+}
+#button-elements-1{
+    position:absolute;
+    width:100%;
+    height:5px;
+    background: #1E90FF
+
+}
+#button-elements-2{
+    top:22%;
+    position:absolute;
+    width:100%;
+    height:5px;
+    background: #1E90FF
+
+}
+#button-elements-3{
+    top:44%;
+    position:absolute;
+    width:100%;
+    height:5px;
+    background: #1E90FF
+}
+#nav-text{
+    position: absolute;
+    font-family: 'Baloo 2', cursive;
+    left:200px;
+    top:25px;
+    white-space: 0.5px;
+    font-size:20px;
+    text-transform: uppercase;
+} 
+
+#background{
+    background-image:url(../images/the-climate-reality-project-Hb6uWq0i4MI-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    width:100%;
+    height:800px;
+    text-align: center;
+    z-index:1;
+    padding-top:200px;
+}
+#back-text{ 
+    background:rgba(0,0,0,0.1);
+     animation-name: sideanimate;
+    animation-duration: 2s;
+    transition: 2s ease-out;
+}
+#about-us{
+    justify-content: center;
+    font-family: 'Baloo 2', cursive;
+    font-size:20px;
+    padding:50px;
+    letter-spacing: 1.5px;
+}
+@keyframes sideanimate{
+    from{
+        opacity:0;
+        transform:scale(0);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+    
+}
+#back-text-para{
+    color:white;
+    font-size:70px;
+    font-family: 'Faster One', cursive;
+    font-family: 'Wendy One', sans-serif;
+    
+}
+#feature{
+    width:100%;
+    z-index:30;
+}
+#note-button{
+    margin-top:15%;
+    width:120px;
+    height: 70px;
+    text-transform: uppercase;
+    background:rgba(139,69,19,0.6);
+    border:1px solid whitesmoke;
+    border-radius:10px;
+    color:white;
+    outline:none;
+    font-size:20px;
+    font-family: 'Baloo 2', cursive;
+    transition: all 200ms ease;
+}
+#note-button:hover{
+    transform: scaleY(1.1);
+    transform: scaleX(1.1);
+}
+#note-button:active{
+    background:rgba(0,0,0,0.5);
+    color:white;
+}
+#facilities-1{
+    padding-top:30px;
+    width:400px;
+    height:300px;
+    border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    margin-top:15px;
+    display: flex;
+    justify-content: center;
+    transition: all 100ms linear;
+   background: rgba(255, 255, 255, 0.9);
+}
+#facilities-1:hover{
+    transform:scale(1.02);
+}
+#facilities-2{
+    padding-top:30px;
+    display: flex;
+    width:400px;
+    height:300px;
+    border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    margin-top:15px;
+    justify-content: center;
+    transition: all 100ms linear;
+      background: rgba(255, 255, 255, 0.9);
+}
+#facilities-2:hover{
+    transform:scale(1.02);
+}
+#facilities-3{
+    padding-top:30px;
+    display: flex;
+    width:400px;
+    height:300px;
+    border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    margin-top:15px;
+    justify-content: center;
+    transition: all 100ms linear;
+      background: rgba(255, 255, 255, 0.9);
+}
+#facilities-3:hover{
+    transform:scale(1.02);
+}
+#fac-img{
+    position: absolute;
+    width:100px; 
+}
+#feature-text{
+    color:brown;
+    margin-top:55%;
+    text-transform: uppercase;
+    font-size:22px;
+     font-family: 'Baloo 2', cursive;
+}
+#feat{
+    padding:20px;
+    font-family: 'Baloo 2', cursive;
+    text-align: center;
+    justify-content: center;
+}
+#footer{
+    width:100%;
+    height:300px;
+    background:rgba(0,0,0,0.9)
+}
+#footer-inside{
+    text-align: center;
+       align-items: center;
+    height:100%;
+    padding: 20px;
+}
+#footer-header{
+    color:white;
+    font-family: 'Baloo 2', cursive;
+    display: block;
+}
+#footer-image{
+ 
+    display: block!important;
+    margin-top:20px;
+    width:50px;
+    margin-left:46%;
+    transition: all 100ms linear;
+}
+#watsapp{
+    display: block;
+}
+#watsapp-image{
+    display:block;
+    width:50px;
+    transition: all 100ms linear;
+}
+#watsapp-no{
+    color:lightblue;
+}
+#footer-image:hover{
+    transform:scale(1.1);
+}
+#mail-button{
+    padding:10px;
+    color:white;
+    background:rgba(139,69,19,0.4);
+    border-radius:10px;
+    margin-top:10px;
+    outline: none;
+    margin-bottom:20px;
+}
+
+#mail-button:focus{
+color:white;
+background:rgba(0,0,0,0.5);
+}
+#number{
+    color:lightblue;
+    display: block;
+}#footer-image-smit{
+    margin-top:10px;
+    width:250px;
+    background:white;
+    transition: all 200ms linear;
+}
+#footer-image-smit:hover{
+    transform:scale(1.1);
+}
+
+
+@media only screen and (min-width:1858px){
+    #note-button{
+        margin-top:10%;
+    }
+}
+@media only screen and (max-width:1200px){
+    #nav-text{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width:750px){
+#button{
+    display: block;
+}
+#element-list-element{
+    display:block;
+    width:100%;
+    text-align:center;
+    margin: 0 auto;
+    margin-top:5px;
+    padding-top:20px;
+    padding-bottom:20px;
+    background:whitesmoke;
+    box-shadow:0px 0px 0px 0px;
+    color:black;
+}
+#element-block{
+    top:80px;
+    position:absolute;
+    width:90%;
+    margin:0px auto;
+    display: none; 
+}
+}
+@media only screen and (min-width:750px){
+#element-block{
+    display: inline-block!important;
+}
+}
+@media only screen and (max-width:631px){
+    #back-text-para{
+        font-size:60px;
+    }
+}
+@media only screen and (max-width:577px){
+#footer{
+    height:600px;
+}
+}
+@media only screen and (max-width:500px){
+    #element-block{
+        right: 7%;
+    }
+        #back-text-para{
+            font-size: 40px;
+        }
+        #background{
+            height:550px;
+        }
+    }

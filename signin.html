@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="style/index.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Wendy+One&display=swap" rel="stylesheet">
+    <script src="index.js" type="text/javascript"></script>
+</head>
+<body>
+    
+
+    <!--Navbar begins-->
+    <div id="navbar">
+        <!--Logo-->
+        <img src = "images/logo.png" id="logo">
+        <!--Logo ends-->
+       <p id="nav-text">Keep calm and take notes</p>
+        <!--Navbar elements-->
+        <div id="element-block">
+            <ul id="element-list">
+                <a href="./sketch.html"><li  id="element-list-element">SKETCH</li></a>
+                <a><li  id="element-list-element">NOTE</li></a>
+                <a><li id="element-list-element">IMPROVE US?</li></a>
+            </ul>
+        </div>
+        <!--Elements end-->
+
+        <!--Button-->
+        <div id="button">
+            <span id="button-elements-1"></span>
+            <span id="button-elements-2"></span>
+            <span id="button-elements-3"></span>
+        </div>
+        <!--End of buttons-->
+    </div>
+    <!--Navbar ends-->
+
+    <form id="signin-form"action="./php/sign-in.php"method ="POST">
+        <div class="container d-flex" id="login"><h1 id="login-text">SIGN-IN</h1></div>
+        <div class="container d-flex" style="justify-content: center;;" id="username">
+             <input id="input" type="text" placeholder="Username"name="username"required/>
+        </div>
+       
+        <div class="container d-flex" style="justify-content: center;"id="password">
+            <input id="password_input" type="password" placeholder="Password"name="password"require>
+            <p id="show_password">Show</p>
+            <script>
+                var test = false;
+                document.getElementById("show_password").addEventListener("click", e=> {
+                   
+                    var k = document.getElementById("password_input");
+                    if(test===false){
+                        k.setAttribute("type", "text");
+                        document.getElementById("show_password").innerHTML = "Hide";
+                        test=true;
+                    }
+                    else{
+                        k.setAttribute("type","password");
+                        document.getElementById("show_password").innerHTML = "Show";
+                        test=false;
+                    }
+                })
+            </script>
+        </div>
+        <div class="container d-flex" style="justify-content: center;;"id="email">
+            <input id="email_input"type="email" placeholder="Email"name="email"require/>
+        </div>
+        <div class="container d-flex" style="justify-content: center;"id="submit-button">
+            <button id="submit"type="submit">SIGN IN</button>
+        </div>
+        <div class="container d-flex" id="login"><a href="./login.html"style="cursor: pointer;"><h6 id="login-text">Already Signed In? Log In</h6></a></div>
+    </form>
+    
+</body>
+</html>
+<style>
+*{
+    padding:0px;
+    margin:0px;
+}
+#login-text{
+    font-family: 'Baloo 2', cursive;
+    color:rgba(139,69,19,0.6);
+}
+#username,#password,#email{
+    padding:20px;
+    margin-top:10px;
+}
+#username input::placeholder{
+     font-family: 'Baloo 2', cursive;
+    color:black;
+}#password input::placeholder{
+     font-family: 'Baloo 2', cursive;
+    color:black;
+}#email input::placeholder{
+    font-family: 'Baloo 2', cursive;
+    color:black;
+}
+#username input,#password input,#email input{
+padding: 10px;
+width:80%;
+outline: none;
+border:0px;
+border-bottom: 1px solid black;
+transition: all 200ms linear;
+}
+#input:focus{
+border-bottom:2px solid rgba(139,69,19,1);
+}
+#email_input:focus{
+border-bottom:2px solid rgba(139,69,19,1);
+}
+#password_input:focus{
+border-bottom:2px solid rgba(139,69,19,1);
+}
+#signin-form{
+    margin-top:100px;
+    width:700px;
+    height: 500px;
+    position: absolute;
+        border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+#login{
+    justify-content: center;
+    margin-top:20px;
+}
+#show_password{
+    position:absolute;
+    right:5em;
+    border: 0px;
+  color:rgba(139,69,19,0.6);
+  outline: none;
+  background: none;
+  font-size:15px;
+}
+#submit{
+    padding:10px;
+    font-family: 'Baloo 2', cursive;
+    background-color:rgba(139,69,19,0.6);
+    color:white;
+        -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+border-radius:20px;
+outline:none;
+}
+#submit:focus{
+    background: rgba(0, 0, 0, 0.8);
+    color:white;
+}
+
+
+@media only screen and (max-width:1000px){
+    #signin-form{
+        width:500px;
+    }
+}
+@media only screen and (max-width:600px){
+    #signin-form{
+        width:400px;
+    }
+}
+@media only screen and (max-width:450px){
+    #signin-form{
+        width:300px;
+        margin-top:80px;
+    }
+        #show_password{
+            font-size:10px;
+            top:43%;
+    }
+}
+@media only screen and (max-width:320px){
+    #signin-form{
+        width:260px;
+    }
+        #show_password{
+            font-size:10px;
+            top:43%;
+    }
+}
+
+</style>
