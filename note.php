@@ -35,7 +35,7 @@ body{
 }
 #search-form-1{
     position: absolute;
-    margin-top:10px;
+    margin-top:0px;
     padding:10px;
     z-index:30;
     position: fixed;
@@ -62,9 +62,11 @@ outline:none;
     border:2px solid #1E90FF;
 }
 #search-button{
+    width:120px!important;
+    font-size:12px;
     margin-left:10px;
     width:100px;
-    padding:18px;
+    padding:15px;
     border-radius: 30px;
             border: 1px solid #c5c5c5;
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
@@ -196,7 +198,7 @@ color:white!important;
             </form>
             <form id="search-form-2"action="">
                 <button id="search-button">
-                    + NEW NOTE +
+                    + NEW NOTE
                 </button>
             </form>
     </div>
@@ -289,7 +291,7 @@ echo $table;
         $db_name = "note";
         $connec = new mysqli($servername,$username,$password,$db_name);
         $sql = "SELECT username,password from user_authentication WHERE  LIKE '".$table."'";
-        
+        $result =  $connec->query()
        
 ?>
 

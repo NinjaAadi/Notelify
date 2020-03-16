@@ -15,6 +15,54 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!--Navbar begins-->
+    <div id="navbar">
+        <!--Logo-->
+        <img src = "images/logo.png" id="logo">
+        <!--Logo ends-->
+       <p id="nav-text">Keep calm and take notes</p>
+        <!--Navbar elements-->
+        <div id="element-block">
+            <ul id="element-list">
+                <a><li  id="element-list-element">HOME</li></a>
+                <a href="./sketch.html"><li  id="element-list-element">SKETCH</li></a>
+                <a><li id="element-list-element">IMPROVE US?</li></a>
+            </ul>
+        </div>
+        <!--Elements end-->
+
+        <!--Button-->
+        <div id="button">
+            <span id="button-elements-1"></span>
+            <span id="button-elements-2"></span>
+            <span id="button-elements-3"></span>
+        </div>
+        <!--End of buttons-->
+    </div>
+    <!--Navbar ends-->
+    <div class="container" id="notes-container">
+        <form action=""method="POST">
+            <div class="container">
+                            <input id="topic"type="text">
+            </div>
+            <div class="container">
+                 <input id="sub-topic"type="text"/>
+            </div>
+           <div class="container">
+                <textarea id="main-note"></textarea>
+           </div>
+           
+        </form>
+    </div>
+
 </body>
 </html>
+<style>
+#notes-container{
+    position: absolute;
+    top:200px;
+}
+#topic{
+    display: block;
+}
+</style>

@@ -20,12 +20,26 @@ $_SESSION['email'] = $_POST['email'];
 $test = 0;
 $sql2 = "SHOW DATABASES LIKE '".$_SESSION['username']."'";
 $r = $connec1->query($sql2);
-$r1 =  $r->num_rows;
+$r1 = $r->num_rows;
+$sql3 = "SELECT * FROM user_authentication WHERE email =  '".$_SESSION['email']."'";
+$r4 = $connec->query($sql3);
+ $r3 =  $r4->num_rows;
+$show = 0;
     if($r1!=0)
     {
-        echo '<h2>' . 'Username already taken' . '</h2>';
+        $show=$show+1;
+        echo '<h1>' . 'Username already taken' . '</h1>';
+
+                 
     }
-    else{
+    if($r3>0)
+                    {   
+                     $show=$show+1;
+                     echo '<h1>' . "Email already taken" . '</h1>';
+
+                    }
+
+    if($show!=2){
 if(!$_SESSION['username']==""){
     $test = $test + 1;
 }
