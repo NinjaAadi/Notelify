@@ -19,7 +19,6 @@
         $_SESSION['pass'] = $_POST['password'];
         $pswd1= $connec->real_escape_string($_SESSION['pass']);
         $pswd2 = hash('sha512',$pswd1);
-        
         $email = $connec->real_escape_string($_SESSION['user']);
         $sql = "SELECT email,password FROM user_authentication";
         $result = $connec->query($sql);
@@ -30,6 +29,9 @@
             echo $_SESSION['user'];
             header('Location:../note.php');
         }
+    }
+    if($_SESSION['user']==""&&$_SESSION['pass']==""){
+        header("Location:index.html");
     }
     if($flag==0){
             echo '<h2>' . 'Wrong credentials' . '</h2>';

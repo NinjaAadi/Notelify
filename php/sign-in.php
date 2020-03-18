@@ -73,6 +73,16 @@ if($test=3){
     $v5 = $_SESSION['username'];
     $sql1 = "CREATE DATABASE IF NOT EXISTS ". $v5 ." DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
     $connec2->query($sql1);
+    $connec4 =  new mysqli($servername,$username,$password,$v5);
+    $sql4 = "CREATE TABLE notes
+    (
+        topic VARCHAR(100) NOT NULL,
+        subtopic VARCHAR(200) NOT NULL,
+        note VARCHAR(2000) NOT NULL,
+        date VARCHAR(12) NOT NULL,
+        time VARCHAR(12) NOT NULL
+    )";
+    $connec4->query($sql4);
     session_start();
     session_destroy();
     header('Location:../login.html');
@@ -81,6 +91,8 @@ else{
     echo "<h2>".'Password to short'. "</h2>";
 }
     }
+    //DELETE FROM user_authentication WHERE email = "aaditya7739008423@gmail.com"
+    //DROP DATABASE aaditya7903
 ?>
 </body>
 </html>

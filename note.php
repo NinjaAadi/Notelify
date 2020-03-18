@@ -1,5 +1,8 @@
 <?php
-session_start()
+session_start();
+if(!isset($_SESSION['user'])){
+    header("Location:./php/login.php");
+}
 ?>
 <html lang="en">
 <head>
@@ -17,6 +20,123 @@ session_start()
     <link href="https://fonts.googleapis.com/css?family=Wendy+One&display=swap" rel="stylesheet">
     <script src="index.js" type="text/javascript"></script>
 
+
+</head>
+
+<body>
+     <!--Navbar begins-->
+    <div id="navbar">
+        <!--Logo-->
+        <img src = "images/logo.png" id="logo">
+        <!--Logo ends-->
+       <p id="nav-text">Keep calm and take notes</p>
+        <!--Navbar elements-->
+        <div id="element-block">
+            <ul id="element-list">
+                <a><li  id="element-list-element">HOME</li></a>
+                <a><li  id="element-list-element">SKETCH</li></a>
+                <a><li id="element-list-element">IMPROVE US?</li></a>
+            </ul>
+        </div>
+        <!--Elements end-->
+
+        <!--Button-->
+        <div id="button">
+            <span id="button-elements-1"></span>
+            <span id="button-elements-2"></span>
+            <span id="button-elements-3"></span>
+        </div>
+        <!--End of buttons-->
+    </div>
+    <!--Navbar ends-->
+
+
+    <!--Search your notes-->
+    <div class="container d-flex"style="justify-content:center">
+        <form id="search-form"action="">
+             <input id="searchbox"type="text"placeholder="Search your notes">
+             <button id="search-button"type="submit">Search</button>
+        </form>
+        <form id="search-form-1"action="./php/logout.php">
+                <button id="search-button">LOGOUT</button>
+            </form>
+            <form id="search-form-2"action="take-notes.html">
+                <button id="search-button">
+                    + NEW NOTE
+                </button>
+            </form>
+    </div>
+
+
+     <div class="container d-flex" id="heading">
+        <h1>TOPICS</h1>
+    </div>
+
+
+     <div id="feature"class="container">
+        <div class="row">
+                 
+<?php
+        $table =  $_SESSION['user'];
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $db_name = "note";
+        $connec = new mysqli($servername,$username,$password,$db_name);
+        $sql = "SELECT username FROM user_authentication WHERE email='".$table."'";
+        $result =  $connec->query($sql);
+        $row = $result->fetch_assoc();
+        $db_name_2 = $row['username'];
+        $_SESSION['db_name_user'] = $db_name_2;
+        $connec1 = new mysqli($servername,$username,$password,$db_name_2);
+        //echo $db_name_2;
+        $sql1 = "SELECT * FROM notes";
+        //value = "' . $row1['topic'] . '"
+        $result1 = $connec1->query($sql1);
+            WHILE($row1 = $result1->fetch_assoc()){
+            echo '<div class="col-lg-4 col-md-4 d-flex" style="justify-content: center;align-content: center;align-items: center;">';
+                echo '<form action="./show_note.php"method="POST">';
+                    echo  '<button id="sketch_button" type="submit" name="submit" value = "'. $row1['topic'] .'">
+                    <h2> '.$row1['topic'].'</h2>
+                    </button>';
+                echo '</form>';
+            echo '</div>';
+            }
+       
+       
+?>
+    </div>
+    </div>
+
+         <div class="container d-flex" id="feat">
+        <h1>CONTACT US</h1>
+    </div>
+    <div class="container-fluid" id="footer">
+        <div class="row">
+            <div id="footer-inside"class="col-lg-6 col-sm-6">
+                <h3 id="footer-header">Follow Us</h3>
+                <div id="watsapp">
+                    <a href=""><img style="background: white;"id="footer-image" src="./images/facebook.png"></a>
+                </div>
+                <div id="watsapp">
+                     <a><img id="footer-image" src="./images/github.png"></a>
+                </div>
+                <div id="watsapp">
+                     <a><img id="footer-image" src="./images/instagram.png"></a>
+                </div>
+            </div>
+            <div id="footer-inside"class="col-lg-6 col-sm-6">
+                <h3 id="footer-header">Contact Us</h3>
+                <a href="mailto:aaditya7739008423@gmail.com"><button id="mail-button">MAIL US</button></a><br/>
+                <a id="number" href="tel:+917903966014">+917903966014</a>
+                <a><img id="footer-image-smit" src="images/smit logo.png"></a>
+            </div>
+        </div>
+    </div>
+ 
+</body>
+
+</html>
 <style>
 body{
     padding:0px;
@@ -80,26 +200,24 @@ color:white;
     background:rgba(0, 0, 0, .8);
 }
 #sketch_button{
-    background:white;
-    width:300px;
-    height:200px;
-    margin-top:40px;
+    background:white!important;
+    width:300px!important;
+    height:200px!important;
+    margin-top:40px!important;
     color: black !important;
-text-transform: uppercase;
+text-transform: uppercase!important;
 text-decoration: none;
-
-
-border: none;
-transition: all 0.4s ease 0s;
--webkit-box-shadow: 0px 5px 20px -8px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+border:none!important;
+transition: all 0.4s ease 0s!important;
+-webkit-box-shadow: 0px 5px 20px -8px rgba(0,0,0,0.57)!important;
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57)!important;
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57)!important;
 }
-#sketch_button h2{
+#heading{
     font-family: 'Baloo 2', cursive;
 }
 #sketch_button:hover {
-background: #434343;
+background: #434343!important;
 letter-spacing: 1px;
 -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -157,141 +275,5 @@ color:white!important;
     }
 }
 </style>
-</head>
-
-<body>
-     <!--Navbar begins-->
-    <div id="navbar">
-        <!--Logo-->
-        <img src = "images/logo.png" id="logo">
-        <!--Logo ends-->
-       <p id="nav-text">Keep calm and take notes</p>
-        <!--Navbar elements-->
-        <div id="element-block">
-            <ul id="element-list">
-                <a><li  id="element-list-element">HOME</li></a>
-                <a><li  id="element-list-element">SKETCH</li></a>
-                <a><li id="element-list-element">IMPROVE US?</li></a>
-            </ul>
-        </div>
-        <!--Elements end-->
-
-        <!--Button-->
-        <div id="button">
-            <span id="button-elements-1"></span>
-            <span id="button-elements-2"></span>
-            <span id="button-elements-3"></span>
-        </div>
-        <!--End of buttons-->
-    </div>
-    <!--Navbar ends-->
-
-
-    <!--Search your notes-->
-    <div class="container d-flex"style="justify-content:center">
-        <form id="search-form"action="">
-             <input id="searchbox"type="text"placeholder="Search your notes">
-             <button id="search-button"type="submit">Search</button>
-        </form>
-        <form id="search-form-1"action="">
-                <button id="search-button">LOGOUT</button>
-            </form>
-            <form id="search-form-2"action="">
-                <button id="search-button">
-                    + NEW NOTE
-                </button>
-            </form>
-    </div>
-
-
-     <div class="container d-flex" id="heading">
-        <h1>TOPICS</h1>
-    </div>
-
-
-     <div id="feature"class="container">
-        <div class="row">
-                 <div class="col-lg-4 col-md-4 d-flex" style="justify-content: center;align-content: center;align-items: center;">
-                                    
-                                    <form action="">
-                                         <button id="sketch_button"><h2>PHYSICS</h2></button>
-                                    </form>
-                     </div>
-                     <div class="col-lg-4 col-md-4 d-flex" style="justify-content: center;align-content: center;align-items: center;">
-                                    
-                                    <form action="">
-                                         <button id="sketch_button"><h2>CHEMISTRY</h2></button>
-                                    </form>
-                     </div>
-                     <div class="col-lg-4 col-md-4 d-flex" style="justify-content: center;align-content: center;align-items: center;">
-                                    
-                                    <form action="">
-                                         <button id="sketch_button"><h2>GRAPH THEORY</h2></button>
-                                    </form>
-                     </div>
-                      <div class="col-lg-4 col-md-4 d-flex" style="justify-content: center;align-content: center;align-items: center;">
-                                    
-                                    <form action="">
-                                         <button id="sketch_button"><h2>GRAPH THEORY</h2></button>
-                                    </form>
-                     </div>
-                      <div class="col-lg-4 col-md-4 d-flex" style="justify-content: center;align-content: center;align-items: center;">
-                                    
-                                    <form action="">
-                                         <button id="sketch_button"><h2>GRAPH THEORY</h2></button>
-                                    </form>
-                     </div>
-                      <div class="col-lg-4 col-md-4 d-flex" style="justify-content: center;align-content: center;align-items: center;">
-                                    
-                                    <form action="">
-                                         <button id="sketch_button"><h2>GRAPH THEORY</h2></button>
-                                    </form>
-                     </div>
-                    
-
-    </div>
-    </div>
-
-         <div class="container d-flex" id="feat">
-        <h1>CONTACT US</h1>
-    </div>
-    <div class="container-fluid" id="footer">
-        <div class="row">
-            <div id="footer-inside"class="col-lg-6 col-sm-6">
-                <h3 id="footer-header">Follow Us</h3>
-                <div id="watsapp">
-                    <a href=""><img style="background: white;"id="footer-image" src="./images/facebook.png"></a>
-                </div>
-                <div id="watsapp">
-                     <a><img id="footer-image" src="./images/github.png"></a>
-                </div>
-                <div id="watsapp">
-                     <a><img id="footer-image" src="./images/instagram.png"></a>
-                </div>
-            </div>
-            <div id="footer-inside"class="col-lg-6 col-sm-6">
-                <h3 id="footer-header">Contact Us</h3>
-                <a href="mailto:aaditya7739008423@gmail.com"><button id="mail-button">MAIL US</button></a><br/>
-                <a id="number" href="tel:+917903966014">+917903966014</a>
-                <a><img id="footer-image-smit" src="images/smit logo.png"></a>
-            </div>
-        </div>
-    </div>
  
-</body>
-
-</html>
-   <?php
-$table =  $_SESSION['user'];
-echo "chutia";
-echo $table;
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
-        $db_name = "note";
-        $connec = new mysqli($servername,$username,$password,$db_name);
-        $sql = "SELECT username,password from user_authentication WHERE  LIKE '".$table."'";
-        $result =  $connec->query()
-       
-?>
 

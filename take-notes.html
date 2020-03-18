@@ -40,16 +40,28 @@
         <!--End of buttons-->
     </div>
     <!--Navbar ends-->
-    <div class="container" id="notes-container">
-        <form action=""method="POST">
-            <div class="container">
-                            <input id="topic"type="text">
+   
+     
+    <div  id="notes-container">
+        
+        <form action="./php/note-save.php"method="POST">
+ <div class="container d-flex" style="justify-content: center;">
+        <div id="search-form-1"action="">
+                <button id="search-button">SAVE</button>
+        </div>
+    </div>
+
+
+
+
+            <div class="container d-flex"style="justify-content:center;margin-top:20px;text-align:center;align-items:center">
+                            <input id="topic"type="text" placeholder="TOPIC (Notes will be saved base on topics)"name="topic">
             </div>
-            <div class="container">
-                 <input id="sub-topic"type="text"/>
+            <div class="container d-flex"style="justify-content:center;margin-top:20px;">
+                 <input id="sub-topic" placeholder="Enter your sub-topic"type="text"name="subtopic"#w/>
             </div>
-           <div class="container">
-                <textarea id="main-note"></textarea>
+           <div class="container d-flex"style="justify-content:center;margin-top:20px;">
+                <textarea id="main-note" placeholder="Write your notes"name="notes"></textarea>
            </div>
            
         </form>
@@ -61,8 +73,82 @@
 #notes-container{
     position: absolute;
     top:200px;
+    width:100%;
 }
 #topic{
     display: block;
+    width:80%;
+    height:60px;
+     border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+padding:10px;
+transition: all 200ms linear;
+outline: none;
 }
+#topic::placeholder,#sub-topic::placeholder,#main-note::placeholder{
+    padding:8px;
+    font-family: 'Baloo 2', cursive;
+}
+#topic:focus{
+    border:2px solid #1E90FF;;
+}
+#sub-topic:focus{
+    border:2px solid #1E90FF;;
+}
+#main-note:focus{
+    border:2px solid #1E90FF;;
+}
+#sub-topic{
+    display: block;
+    width:80%;
+    height:60px;
+     border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+padding:10px;
+transition: all 200ms linear;
+outline: none;
+}
+#main-note{
+    display: block;
+    width:80%;
+    height:400px;
+     border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .25);
+padding:10px;
+transition: all 200ms linear;
+outline: none;
+}
+#search-form-1{
+    position: absolute;
+    margin-top:-100px;
+    padding:10px;
+    z-index:30;
+    position: fixed;
+}
+#search-button{
+    width:120px!important;
+    font-size:12px;
+    margin-left:10px;
+    width:100px;
+    padding:15px;
+    border-radius: 30px;
+            border: 1px solid #c5c5c5;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+outline:none;
+background: #1E90FF;
+color:white;
+}
+#search-button:focus{
+    background:rgba(0, 0, 0, .8);
+}
+
+
 </style>
